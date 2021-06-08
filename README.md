@@ -25,6 +25,10 @@ Gin is a modern programming language designed for a visual programming experienc
 - Stored as JSON and could be parsed by any language and transformed into a callable function or code in another language
 - Type changes generate data migration expressions
 
+**Comparable Languages**
+- Swift: Gin allows modifying system types and operator overloading.
+- Go: Gin has a similar type system, only addition being generics. 
+
 ## Intro
 
 Gin is composed of 3 core objects: Types, Expressions, and Data.
@@ -48,6 +52,13 @@ All three are stored as a JSON tuple in the following format: `['id', ...payload
 - **Types**: `[id: string, options?: object, comment?: string]`. There are system defined ids, but the user can create new types.
 - **Expressions**: `[id: string, options: object, comment?: string]`. All ids are system defined, no custom expressions.
 - **Data**: `[typeId: string, value: any]`. The id always points to a defined type.
+
+### Pros
+- Types, data, and expressions can easily be saved or sent anywhere.
+- Common format that all languages can easily parse.
+
+### Cons
+- Not easy to write by hand.
 
 ## Types
 
@@ -73,3 +84,29 @@ All three are stored as a JSON tuple in the following format: `['id', ...payload
 
 ## Expressions
 
+- **And**: `[and, exprs[]]`
+- **Assert**: `[assert, { condition, message }]`
+- **Chain**: `[chain, exprs[]]`
+- **Computed**: `[computed, prop]`
+- **Constant**: `[constant, value]`
+- **Define**: `[define, { vars[], body }]`
+- **Do**: `[do, { condition, body }]`
+- **Flow**: `[flow, { type, value? }]`
+- **For**: `[for, { var, start, end, by }]`
+- **Function**: `[func, { args, body }]`
+- **Get**: `[get, prop]`
+- **GetData**: `[getdata, dataname]`
+- **If**: `[if, ]`
+- **Invoke**:
+- **Method**:
+- **No**:
+- **Not**:
+- **Object**:
+- **Operation**:
+- **Or**:
+- **Path**:
+- **Set**:
+- **Switch**:
+- **Template**:
+- **Tuple**:
+- **While**:
