@@ -21,15 +21,15 @@ A set of key/value constants.
 ### Data Format
 
 ```
-['enumName', enumName key]
+['key type', key value]
 ```
 
-`enumName key` is not stored in the data format of `[type, value]`, it's strictly the `value`.
+An enum value appears like another type, but it's a match for one of the enum constant's key.
 
 ### Type Format
 
 ```
-enumName = ['enum', { key: Type, value: Type, constants: [key: Data, value: Data][] }]
+['enum', { key: Type, value: Type, constants: [key: Data, value: Data][] }]
 ```
 
 `key` & `value` in constants is not stored in the data format of `[type, value]`, it's strictly the `value`.
