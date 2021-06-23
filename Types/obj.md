@@ -19,8 +19,10 @@ A user defined set of keys and values.
 ### Data Format
 
 ```
-['obj', { x: ['num', 3], y: ['bool'] }]
+['obj', { [key]: value, ... }]
 ```
+
+`value` is not stored in the data format of `[type, value]`, it's strictly the `value`.
 
 ### Type Format
 
