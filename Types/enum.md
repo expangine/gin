@@ -2,7 +2,8 @@
 
 **ID**: `enum`  
 **System Type**: `enum`  
-**Sub Types**: *none*
+**Sub Types**: *enum value sub types*  
+**Child Types**: key, value  
 
 A set of key/value constants.
 
