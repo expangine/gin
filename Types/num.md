@@ -3,6 +3,7 @@
 **ID**: `num`  
 **System Type**: `number`  
 **Sub Types**: *none*  
+**Child Types**: *none*  
 
 A signed numeric value that can have a whole and fractional part.
 
