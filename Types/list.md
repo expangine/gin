@@ -17,6 +17,8 @@ An array of values.
 - `item`: The type for the items in the list.
 - `min`: The minimum number of items required.
 - `max`: The maximum number of items required.
+- `unique`: If the list should only contains unique items.
+- `sorted`: If the list items should always be sorted.
 
 ### Data Format
 
@@ -29,5 +31,5 @@ An array of values.
 ### Type Format
 
 ```
-['list', { item: Type, min?: number, max?: number }]
+['list', { item: Type, min?: number, max?: number, unique?: boolean, sorted?: boolean }]
 ```
