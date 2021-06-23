@@ -2,7 +2,8 @@
 
 **ID**: `bool`  
 **System Type**: `boolean`  
-**Sub Types**: *none*
+**Sub Types**: *none*  
+**Child Types**: *none*  
 
 A true or false value.
 
