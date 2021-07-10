@@ -51,7 +51,7 @@ All three are stored as a JSON tuple in the following format: `[id, payload, com
 
 - **Types**: `[id: string, options?: object, comment?: string]`. There are system defined ids, but the user can create new types.
 - **Expressions**: `[id: string, options: object, comment?: string]`. All ids are system defined, no custom expressions.
-- **Data**: `[typeId: string, value: any]`. The id always points to a defined type.
+- **Data**: `[typeId: string, value: any, typeOptions?: object]`. The id always points to a defined type.
 
 ### Pros
 - Types, data, and expressions can easily be saved or sent anywhere.
@@ -62,36 +62,15 @@ All three are stored as a JSON tuple in the following format: `[id, payload, com
 
 ## Types
 
-- **Number**: Ex: 1, -2.3, 0.001
-  - Data: `['num', 23]`
-  - Type: `['num', { min?: number, max?: number, whole?: boolean, precision?: number }]`
-- **Text**: A string. Ex: 'Hello'
-  - Data: `['text', 'Hello World']`
-  - Type: `['text', { case?: 'upper' | 'lower', caseForce?: boolean, caseRequire?: boolean, min?: number, max?: number, matches?: RegExp }]`
-- **Boolean**: A true/false value.
-  - Data: `['bool', true]`
-  - Type: `['bool', { truthy?: any[], falsy?: any[] }]`
-- **Enum**: A set of key/value constants. 
-  - Data: `['enumName', 23]`
-  - Type: `['enumName', [['Yes', 23], ['No', 24]]]`
-- **Object**: A user defined set of properties and values.
-  - Data: `['obj', { x: 4, y: 'no' }]`
-  - Type: `['obj', { x: ['num'], y: ['text'] }]`
-- **Tuple**: A user defined set of elements. Ex: `[3, 'hi'], [1, 2, 3], ['hi', { x: 5 }]`
-  - Data: `['tup', [1, true, 'OK']]`
-  - Type: `['tup', [['num'], ['bool'], ['text']]]`
-- **List**: An array of values.
-  - Data: `['list', [1, 2, 3, 4]]`
-  - Type: `['list', { item: ['num'], min?: number, max?: number }]`
-- **Set**: A collection of unique values.
-  - Data: `['set', [1, 2, 3, 4]]`
-  - Type: `['set', { item: ['num'] }]`
-- **Map**: A collection of key/values.
-  - Data: `['map', [['x', 1], ['y', 2]]`
-  - Type: `['map', { key: ['text'], value: ['num'] }]`
-- **Date**: A date and optionally time.
-  - Data: `['date', 'yyyy-mm-dd']`
-  - Type: `['date', { date?: boolean, time?: boolean, zone?: boolean, seconds?: boolean }]`
+- [**Number**](Types/num.md): Ex: 1, -2.3, 0.001
+- [**Text**](Types/text.md): A string. Ex: 'Hello'
+- [**Boolean**](Types/bool.md): A true/false value.
+- [**Enum**](Types/enum.md): A set of key/value constants. 
+- [**Object**](Types/obj.md): A user defined set of properties and values.
+- [**Tuple**](Types/tup.md): A user defined set of elements. Ex: `[3, 'hi'], [1, 2, 3], ['hi', { x: 5 }]`
+- [**List**](Types/list.md): An array of values.
+- [**Map**](Types/map.md): A collection of key/values.
+- [**Moment**](Types/mom.md): A date and/or time & timezone.
 - **Color**: A color with red, green, blue, and alpha components.
   - Data: `['color', [255, 127, 255, 1.0]]`
   - Type: `['color', { alpha?: boolean }]`
