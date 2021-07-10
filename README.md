@@ -47,7 +47,7 @@ More complex objects in Gin are defined by the 3 core objects:
 
 ## Storage
 
-All three are stored as a JSON tuple in the following format: `[id, payload, comment?]`.
+All three are stored as a JSON tuple in the following format: `[id, payload, extra?]`.
 
 - **Types**: `[id: string, options?: object, comment?: string]`. There are system defined ids, but the user can create new types.
 - **Expressions**: `[id: string, options: object, comment?: string]`. All ids are system defined, no custom expressions.
@@ -67,7 +67,7 @@ All three are stored as a JSON tuple in the following format: `[id, payload, com
 - [**Boolean**](Types/bool.md): A true/false value.
 - [**Enum**](Types/enum.md): A set of key/value constants. 
 - [**Object**](Types/obj.md): A user defined set of properties and values.
-- [**Tuple**](Types/tup.md): A user defined set of elements. Ex: `[3, 'hi'], [1, 2, 3], ['hi', { x: 5 }]`
+- [**Tuple**](Types/tup.md): A user defined list of elements. Ex: `[3, 'hi'], [1, 2, 3], ['hi', { x: 5 }]`
 - [**List**](Types/list.md): An array of values.
 - [**Map**](Types/map.md): A collection of key/values.
 - [**Moment**](Types/mom.md): A date and/or time & timezone.
