@@ -67,7 +67,7 @@ All three are stored as a JSON tuple in the following format: `[id, payload, ext
 - [**Boolean**](Types/bool.md): A true/false value.
 - [**Enum**](Types/enum.md): A set of key/value constants. 
 - [**Object**](Types/obj.md): A user defined set of properties and values.
-- [**Tuple**](Types/tup.md): A user defined list of elements. Ex: `[3, 'hi'], [1, 2, 3], ['hi', { x: 5 }]`
+- [**Tuple**](Types/tup.md): A finite list of elements with specific types.
 - [**List**](Types/list.md): An array of values.
 - [**Map**](Types/map.md): A collection of key/values.
 - [**Moment**](Types/mom.md): A point in time as big as a year, as small as a millisecond, and any point in time between.
