@@ -70,7 +70,8 @@ All three are stored as a JSON tuple in the following format: `[id, payload, ext
 - [**Tuple**](Types/tup.md): A user defined list of elements. Ex: `[3, 'hi'], [1, 2, 3], ['hi', { x: 5 }]`
 - [**List**](Types/list.md): An array of values.
 - [**Map**](Types/map.md): A collection of key/values.
-- [**Moment**](Types/mom.md): A date and/or time & timezone.
+- [**Moment**](Types/mom.md): A point in time as big as a year, as small as a millisecond, and any point in time between.
+- [**Duration**](Types/dur.md): A duration of time.
 - **Color**: A color with red, green, blue, and alpha components.
   - Data: `['color', [255, 127, 255, 1.0]]`
   - Type: `['color', { alpha?: boolean }]`
