@@ -19,8 +19,10 @@ A moment of time. Can be a particular day or time and time zone or both.
 
 ### Type Options
 
-- `max`: The largest moment component `year | month | date | hour | min | sec | mil`. Default to `year`.
-- `min`: The smallest moment component `year | month | date | hour | min | sec | mil`. Default to `mil`.
+`type MomentComponent = 'year' | 'month' | 'date' | 'hour' | 'minute' | 'second' | 'millisecond';`
+
+- `max`: The largest `MomentComponent`. Default to `year`.
+- `min`: The smallest `MomentComponent`. Default to `millisecond`.
 - `zone`: If the moment has a Time Zone.
 
 ### Data Format
@@ -32,7 +34,7 @@ A moment of time. Can be a particular day or time and time zone or both.
 ### Type Format
 
 ```
-['mom', { max?: year | month | date | hour | min | sec | mil, min?: year | month | date | hour | min | sec | mil, zone?: boolean }]
+['mom', { max?: MomentComponent, min?: MomentComponent, zoned?: boolean }]
 ```
 
 ### Thoughts
