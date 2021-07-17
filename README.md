@@ -72,30 +72,18 @@ All three are stored as a JSON tuple in the following format: `[id, payload, ext
 - [**Map**](Types/map.md): A collection of key/values.
 - [**Moment**](Types/mom.md): A point in time as big as a year, as small as a millisecond, and any point in time between.
 - [**Duration**](Types/dur.md): A duration of time.
-- **Color**: A color with red, green, blue, and alpha components.
-  - Data: `['color', [255, 127, 255, 1.0]]`
-  - Type: `['color', { alpha?: boolean }]`
-- **Optional**: A type that isn't required, has an inner type.
-  - Data: ` `
-  - Type: `['?', ['text']]`
+- [**Color**](Types/color.md): A color with red, green, blue, and alpha components.
+- [**Optional**](Types/opt.md): A type that isn't required, has an inner type.
 - **Function**: A type which describes a functions parameters and return type.
   - Data: `['func', expr]`
   - Type: `['func', { generics?: string[], params?: { paramName: ['type'] }, returns?: }]`
-- **Many**: A type which accepts multiple types.
-  - Data: `['num', 12]`
-  - Type: `['many', [['num']]]`
-- **Not**: A type which accepts any type but specified types.
-  - Data: `['num', 12]`
-  - Type: `['not', [['text']]]`
-- **Null**: A type to represent no value.
-  - Data: `['null']`
-  - Type: `['null']`
+- [**Many**](Types/many.md): A type which accepts multiple types.
+- [**Not**](Types/not.md): A type which accepts any type but specified types.
+- [**Null**](Types/null.md): A type to represent no value.
 - **Reference**: A type that references a user-defined type.
   - Data: `['typeName', value]`
   - Type: `['typeName', type]`
-- **Any**: A type that's compatible with all types.
-  - Data: `any`
-  - Type: `['any']`
+- [**Any**](Types/any.md): A type that's compatible with all types.
 - **Generic**: A type used a placeholder to create generic functions.
   - Type: `['T']`
 
