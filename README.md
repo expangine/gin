@@ -41,7 +41,7 @@ More complex objects in Gin are defined by the 3 core objects:
 
 - **Operation**: A function type that can be implemented for any supported type.
 - **Operation Implementation**: An expression that implements an operation for a given type.
-- **Function**: A function type and implementation expression. Can be invoked from anywhere and can be unit tested.
+- **Function**: A signature type and implementation expression. Can be invoked from anywhere and can be unit tested.
 - **Reference Data**: A type & data pair that is accessible in any function/program.
 - **Program**: A type defines one or more input datasets with an expression that can be ran.
 
