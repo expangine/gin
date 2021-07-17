@@ -18,11 +18,11 @@ A color in RGB space, optionally with an alpha.
 ### Data Format
 
 ```
-['rgba', [r, g, b, a?]]
+['color', [r, g, b, a?]]
 ```
 
 ### Type Format
 
 ```
-['rgba', { alpha?: boolean }?]
+['color', { alpha?: boolean }?]
 ```
