@@ -1,7 +1,7 @@
 # Not
 
 **ID**: `not`  
-**System Type**: `one of the defined types`
+**System Type**: `one of the defined types`  
 **Sub Types**: `none`  
 **Child Types**: `none`  
 
