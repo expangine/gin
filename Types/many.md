@@ -1,7 +1,7 @@
 # Many
 
 **ID**: `many`  
-**System Type**: `one of the defined types`
+**System Type**: `one of the defined types`  
 **Sub Types**: `all of the sub types in the inner types`  
 **Child Types**: `[i]: inner type`  
 
