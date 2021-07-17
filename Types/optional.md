@@ -1,6 +1,6 @@
 # Optional
 
-**ID**: `opt`  
+**ID**: `?`  
 **System Type**: `none`  
 **Sub Types**: `Sub types of optional type`
 **Child Types**: `optional`
@@ -16,5 +16,5 @@ Data or undefined or null
 ### Type Format
 
 ```
-['opt', Type]
+['?', Type]
 ```
