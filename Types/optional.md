@@ -2,8 +2,8 @@
 
 **ID**: `?`  
 **System Type**: `none`  
-**Sub Types**: `Sub types of optional type`
-**Child Types**: `optional`
+**Sub Types**: `Sub types of optional type`  
+**Child Types**: `optional`  
 
 A value that isn't required.
 
