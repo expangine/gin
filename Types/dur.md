@@ -1,9 +1,9 @@
 # Duration
 
 **ID**: `dur`  
-**System Type**: `object`
+**System Type**: `object`  
 **Sub Types**: *todo*  
-**Child Types**: *none*
+**Child Types**: *none*  
 
 A duration of time.
 
