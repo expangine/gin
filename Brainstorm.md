@@ -31,13 +31,13 @@ Rules
 6. For a given function, it should be easy to see all the implementations.
 7. A function implementation has a related type then specifies one or many type overloads.
 
-The core library has:
+**The core library has:**
 1. List of all core types
 2. List of all core functions (instances of the function type, documentation)
 3. List of all core function implementations (which function, specialized types, function expression OR native implementation)
 4. List of all core unit tests (which function implementation, inputs, expected outputs)
 
-A project has:
+**A project has:**
 1. Added and Type specializations
 2. Added functions (instances of the function type, documentation)
 3. Added and overridden function implementations (which function, specialized types, function expression OR native implementation)
@@ -47,5 +47,45 @@ A project has:
 7. Relation (between Entity)
 8. Programs (name, description, dataType, datasets, program expression)
 
-Functionality:
+**Functionality:**
 1. Add project, handle function & type collisions.
+
+**Extensions:**
+- Temporal (date & time, intervals)
+- Visual (color)
+- Geometry (point, line, segment, circle, vector)
+- Web (components)
+
+When talking values, there are JSON value representations, a runtime (JS) value, and a raw value which can be converted to a runtime value.
+
+**Type:**
+- `options`: Each base type can have options for type instances to be more specific/constrained.
+- `merge(sameType)`: Types of the same type can be merged together.
+- `getSubType(expr, context, defs)`: Determine sub type if possible given an expression.
+- `getSubTypes(defs)`: All key and value types available for obtaining a sub-value.
+- `getChildType(nameIndex)`: A sub type with the given name/index.
+- `getChildTypes()`: All defined sub types.
+- `getExactType(value)`: Given a raw value & if this type represents multiple, return the matching type.
+- `getSimplifiedType()`: For types which wrap others, what is the real type for the values.
+- `getRequired()`: For a type which is optional, return the non-optional version.
+- `isWrapper()`: If a type wraps another type.
+- `getWrappedType()`: The wrapped type.
+- `isDeepCompatible(other, options)`: If the other type is deeply compatible with this type given the options.
+- `acceptsOtherTypes()`: Returns true if when comparing compatibility deep compatibility should be checked.
+- `acceptsType(givenType)`: If this type's value accepts the given type's value.
+- `acceptsData(givenType)`: If this type's data accepts the given type's value.
+- `exactType(givenType)`: If this type is an exact match for the given type.
+- `exactData(givenType)`: If this type's data is an exact match for the given type's data.
+- `isOptional()`: Does this type accept optional values?
+- `isSimple()`: Does this type represent a simple scalar value?
+- `isValid(rawValue)`: Is the given raw value valid for this type?
+- `normalize(rawValue)`: Given a value transform it into a valid raw value.
+- `newInstance()`: A new instance of this type with the no options.
+- `clone()`: A new instance of this type with the same options.
+- `encode()`: Converts this type definition into JSON.
+- `decode(value)`: Converts JSON into a a type instance.
+- `create()`: Creates a raw value of this type.
+- `random(randomizer)`: Creates a raw random value of this type.
+- `fromJson(jsonValue)`: Creates a value of this type from a JSON value.
+- `toJson(value)`: Creates a JSON value from a raw value.
+- `getFunctions(defs)`: Get a list of functions available for this type.
