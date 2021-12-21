@@ -31,14 +31,21 @@ Rules
 6. For a given function, it should be easy to see all the implementations.
 7. A function implementation has a related type then specifies one or many type overloads.
 
+The core library has:
+1. List of all core types
+2. List of all core functions (instances of the function type, documentation)
+3. List of all core function implementations (which function, specialized types, function expression OR native implementation)
+4. List of all core unit tests (which function implementation, inputs, expected outputs)
+
 A project has:
-1. List of all types
-2. List of all functions (instances of the function type, documentation)
-3. List of all function implementations (which function, specialized types, function expression OR native implementation)
-4. List of all unit tests (which function implementation, inputs, expected outputs)
+1. Added and Type specializations
+2. Added functions (instances of the function type, documentation)
+3. Added and overridden function implementations (which function, specialized types, function expression OR native implementation)
+4. Added unit tests (which function implementation, inputs, expected outputs)
 5. Reference data (name, type, data)
 6. Entity (name, type, description, getKey, getDescribe, transcoders, indexes, primaryType, keyType, instances)
 7. Relation (between Entity)
 8. Programs (name, description, dataType, datasets, program expression)
 
-The system will define #1, #2, #3, #4, but a project can add to and overide them.
+Functionality:
+1. Add project, handle function & type collisions.
