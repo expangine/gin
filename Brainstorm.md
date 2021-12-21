@@ -31,7 +31,7 @@ Rules
 6. For a given function, it should be easy to see all the implementations.
 7. A function implementation has a related type then specifies one or many type overloads.
 
-**The core library has:**
+**An environment (ie core library):**
 1. List of all core types
 2. List of all core functions (instances of the function type, documentation)
 3. List of all core function implementations (which function, specialized types, function expression OR native implementation)
@@ -47,6 +47,8 @@ Rules
 7. Relation (between Entity)
 8. Programs (name, description, dataType, datasets, program expression)
 
+And is for a single environment.
+
 **Functionality:**
 1. Add project, handle function & type collisions.
 
@@ -54,7 +56,8 @@ Rules
 - Temporal (date & time, intervals)
 - Visual (color)
 - Geometry (point, line, segment, circle, vector)
-- Web (components)
+- Web (:visual components)
+- Game
 
 When talking values, there are JSON value representations, a runtime (JS) value, and a raw value which can be converted to a runtime value.
 
@@ -88,4 +91,6 @@ When talking values, there are JSON value representations, a runtime (JS) value,
 - `random(randomizer)`: Creates a raw random value of this type.
 - `fromJson(jsonValue)`: Creates a value of this type from a JSON value.
 - `toJson(value)`: Creates a JSON value from a raw value.
+- _following are new_
 - `getFunctions(defs)`: Get a list of functions available for this type.
+- `getGenerics()`: Get a list of the generics on this type and their types if any.
