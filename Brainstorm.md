@@ -62,7 +62,7 @@ And is for a single environment.
 When talking values, there are JSON value representations, a runtime (JS) value, and a raw value which can be converted to a runtime value.
 
 **Core types**
-```
+```go
 // base
 type new        = <T>() => T;                           // required
 type cast       = <T, C>(a: T) => C;
