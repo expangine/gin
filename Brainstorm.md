@@ -22,7 +22,7 @@ They are considered related to a type if they have a generic type as first argum
 {x, y}->lerp( {x, y}, 0.5 )
 ```
 
-Rules
+**Rules**
 1. A function without generics must have an implementation.
 2. A function with generics can have specializations for each defined type.
 3. A function implementation is determined by taking the value type and searching through the type ancestory for the first implementation. If none exists on the types it defaults to the implementation directly on the function type if any exists. If non exists, an exception is thrown. `Type.getFunctionImplementation(typeValues)`
@@ -60,6 +60,60 @@ And is for a single environment.
 - Game
 
 When talking values, there are JSON value representations, a runtime (JS) value, and a raw value which can be converted to a runtime value.
+
+**Core types**
+```
+// base
+type new        = <T>() => T;                           // required
+type cast       = <T, C>(a: T) => C;
+type tryCast    = <T, C>(a: T, otherwise: C) => C;
+type clone      = <T>(a: T) => T;                       // required
+type cloneDeep  = <T>(a: T) => T;
+type isType     = <T>(a: any) => a is T;                // required
+type isEmpty    = <T>(a: T) => boolean;             
+// comparison
+type compare    = <T>(a: T, b: T) => number;            // required
+type =          = <T>(a: T, b: T) => boolean;           // generic uses compare
+type !=         = <T>(a: T, b: T) => boolean;           // generic uses compare
+type >          = <T>(a: T, b: T) => boolean;           // generic uses compare
+type <          = <T>(a: T, b: T) => boolean;           // generic uses compare
+type >=         = <T>(a: T, b: T) => boolean;           // generic uses compare
+type <=         = <T>(a: T, b: T) => boolean;           // generic uses compare
+// math
+type +          = <T>(a: T, b: T) => T;
+type -          = <T>(a: T, b: T) => T;
+type *          = <T>(a: T, b: T) => T;
+type /          = <T>(a: T, b: T) => T;
+type negate     = <T>(a: T) => T;
+type scale      = <T>(a: T, scale: number) => T;
+type divide     = <T>(a: T, divisor: number) => T;
+// helper
+type Comparable       = <T>{ compare<T> };
+type Boolable         = <T>{ cast<T, boolean> };        // if/do/while statements will accept any type which can be cast to boolean
+type Condition        = <T>(a: T) => Boolable<T>;
+type Consumer         = <T>(a: T) => void;
+// collection types
+type Iterator         = <V>{ hasNext(): boolean; next(): V; remove(): boolean; }
+type Iterable         = <V>{ iterator(): Iterator<V>; }
+type Accumulate       = <A, V>(accumulated: A, value: V): A;
+type Addable          = <T, V>{ add(target: T, value: V) => any; };
+// collection functions
+type consume          = <V>(iter: Iterable<V>, consume: Consumer<V>) => void;
+type reduce           = <V, A>(iter: Iterable<V>, accum: Accumulate<A, V>, initial: A): A;
+type first            = <V>(iter: Iterable<V>) => V?;
+type findWhere        = <V>(iter: Iterable<V>, condition: Condition<V>) => V?;
+type indexWhere       = <V>(iter: Iterable<V>, condition: Condition<V>, offset?: number) => number;
+type indexValue       = <V>(iter: Iterable<V>, value: Comparable<V>, offset?: number) => number;
+type countWhere       = <V>(iter: Iterable<V>, condition: Condition<V>) => number;
+type countValue       = <V>(iter: Iterable<V>, value: Comparable<V>) => number;
+type hasWhere         = <V>(iter: Iterable<V>, condition: Condition<V>) => boolean;
+type hasValue         = <V>(iter: Iterable<V>, value: Comparable<V>) => boolean;
+type filter           = <V, T: Addable<T, V>>(iter: Iterable<V>, condition: Condition<V>, target: T) => T;
+type clear            = <V>(iter: Iterable<V>) => number;
+type removeWhere      = <V>(iter: Iterable<V>, condition: Condition<V>) => number;
+type removeValue      = <V>(iter: Iterable<V>, value: Comparable<V>, maxTimes: number = -1) => number;
+type removeAt         = <V>(iter: Iterable<V>, index: number) => boolean;
+```
 
 **Type:**
 - `options`: Each base type can have options for type instances to be more specific/constrained.
