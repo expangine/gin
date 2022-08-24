@@ -1,6 +1,8 @@
 type GinValue = [type: string, data: any, comment: string?];
 type GinType = GinValue;
 type GinExpr = GinValue;
+type GinExprs = GinExpr[];
+type GinExprMap = { [key: string]: GinExpr };
 type GinData = GinValue;
 type GinTypeMap = { [key: string]: GinType };
 
@@ -81,26 +83,26 @@ type InterfaceType: GinType = ['interface', { generics: GinTypeMap, shape: GinTy
 //===================================================================
 // Expressions
 //===================================================================
-type And: GinExpr = ['and', GinExpr[]];
+type And: GinExpr = ['and', GinExprs];
 type Assert: GinExpr = ['assert', { condition: GinExpr, message: GinExpr }];
-type Chain: GinExpr = ['chain', GinExpr[]];
+type Chain: GinExpr = ['chain', GinExprs];
 type Constant: GinExpr = ['constant', GinData];
-type Define: GinExpr = ['define', { vars: GinExpr[], body: GinExpr[] }];
-type Do: GinExpr = ['do', { condition: GinExpr[] }];
-type Flow: GinExpr = ['flow', { type: 'break' | 'return' | 'exit', value?: any }];
-type For: GinExpr = ['for', { var: string, start: GinExpr, end: GinExpr, by?: GinExpr, endInclusive?: boolean }];
-type Func: GinExpr = ['func', { args: GinTypeMap, body: GinExpr[] }];
-type Get: GinExpr = ['get', (GinExpr | string)[]];
-type If: GinExpr = ['if', [GinExpr, GinExpr[]][]];
-type Invoke: GinExpr = undefined;
+type Define: GinExpr = ['define', { vars: [string, GinExpr][], body: GinExprs }];
+type Do: GinExpr = ['do', { condition: GinExpr, body: GinExprs }];
+type Flow: GinExpr = ['flow', { type: 'break' | 'return' | 'exit', value?: GinExpr }];
+type For: GinExpr = ['for', { var: string, start: GinExpr, end: GinExpr, by?: GinExpr, endInclusive?: boolean, body: GinExprs }];
+type Func: GinExpr = ['func', { args: GinTypeMap, body: GinExprs }];
+type Get: GinExpr = ['get', GinExprs];
+type If: GinExpr = ['if', { ifs: [GinExpr, GinExprs][], else: GinExprs ]];
+type Invoke: GinExpr = ['invoke', { func: string, args: GinExprMap }];
 type Method: GinExpr = undefined;
-type No: GinExpr = undefined;
-type Not: GinExpr = undefined;
-type Make: GinExpr = undefined;
-type Operation: GinExpr = undefined;
-type Or: GinExpr = undefined;
+type No: GinExpr = ['no'];
+type Not: GinExpr = ['not', GinExpr];
+type Make: GinExpr = ['make', GinType];
+type Operation: GinExpr = ['op', 'TODO'];
+type Or: GinExpr = ['or', GinExprs];
 type Path: GinExpr = undefined;
-type Set: GinExpr = undefined;
-type Switch: GinExpr = undefined;
-type Template: GinExpr = undefined;
-type While: GinExpr = undefined;
+type Set: GinExpr = ['set', { path: GinExprs, value: GinExpr }];
+type Switch: GinExpr = ['switch', { value: GinExpr, cases: [GinExpr, GinExprs][], otherwise?: GinExprs }];
+type Template: GinExpr = ['template', { pattern: GinExpr, vars: GinExprMap }];
+type While: GinExpr = ['while', { condition: GinExpr, body: GinExprs }];
