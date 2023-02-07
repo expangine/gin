@@ -148,3 +148,16 @@ type removeAt         = <V>(iter: Iterable<V>, index: number) => boolean;
 - _following are new_
 - `getFunctions(defs)`: Get a list of functions available for this type.
 - `getGenerics()`: Get a list of the generics on this type and their types if any.
+
+**Types*
+
+```json
+// Type definition exams
+['Repeat',    ['object', { props: { value: 'T', times: ['int'] }}],       { generics: { T: ['int'] }}]
+['Int8',      ['int', { min: -127, max: 128, decimals: 0 }]]
+['+',         ['func', { args: [{ name: 'this', type: 'T' }, { name: 'addend', type: 'T' }], returns: 'T' }], { generics: { T: ['any'] }}]
+// Type instances
+['Repeat', { value: ['string', 'Hi'], times: ['int', 6] }]
+['Int8', 34]
+['+', 
+```
